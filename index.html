@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Blue - Explore the Future with Interactive Slider">
+    <title>Digital Blue Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <main class="slider-container" role="region" aria-label="Featured Content Slider">
+        <section class="slide slide-1 active" aria-label="Welcome Slide">
+            <video muted autoplay loop class="background-video" aria-hidden="true">
+                <source src="6797-196071980.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay">
+                <h1>Welcome to Digital Blue</h1>
+                <p>Discover the future of technology</p>
+                <button class="cta-button" aria-label="Explore Now">Explore Now</button>
+            </div>
+        </section>
+        <section class="slide slide-2" aria-label="Innovative Solutions Slide">
+            <div class="overlay">
+                <h1>Innovative Solutions</h1>
+                <p>Transforming ideas into reality</p>
+                <div class="feature-icons" aria-hidden="true">
+                    <i class="fas fa-rocket"></i>
+                    <i class="fas fa-brain"></i>
+                    <i class="fas fa-globe"></i>
+                </div>
+            </div>
+        </section>
+        <section class="slide slide-3" aria-label="Join the Journey Slide">
+            <div class="overlay">
+                <h1>Join the Journey</h1>
+                <p>Be part of something extraordinary</p>
+                <button class="cta-button" aria-label="Get Started">Get Started</button>
+            </div>
+        </section>
+        <button class="arrow arrow-left" onclick="prevSlide()" aria-label="Previous Slide">‹</button>
+        <button class="arrow arrow-right" onclick="nextSlide()" aria-label="Next Slide">›</button>
+    </main>
+    <nav class="nav-dots" role="navigation" aria-label="Slider Pagination"></nav>
+    <script src="script.js" defer></script>
+</body>
+</html> 
+

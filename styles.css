@@ -1,0 +1,182 @@
+:root {
+    --primary-bg: #0a0f22;
+    --slide-bg: #1e2a44;
+    --dot-inactive: rgba(70, 130, 180, 0.5);
+    --dot-active: #00d4ff;
+    --arrow-color: #ffffff;
+    --arrow-hover: #00b7eb;
+    --text-glow: 0 0 10px rgba(0, 215, 255, 0.8);
+    --transition-speed: 0.8s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--primary-bg);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.slider-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex; /* Ensure container helps with centering */
+    align-items: center;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; /* Span full slide height */
+    left: 0; /* Span full slide width */
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    padding: 2rem;
+    text-align: center; /* Ensure all text within is centered */
+}
+
+.overlay h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-shadow: var(--text-glow);
+    margin-bottom: 1rem;
+}
+
+.overlay p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #00b7eb, #00d4ff);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover, .cta-button:focus {
+    transform: scale(1.05);
+    box-shadow: var(--text-glow);
+    outline: none;
+}
+
+.feature-icons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    font-size: 2.5rem;
+    animation: float 3s infinite ease-in-out;
+}
+
+.nav-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: var(--dot-inactive);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+    background: var(--dot-active);
+    transform: scale(1.2);
+}
+
+.dot:focus {
+    outline: 2px solid var(--dot-active);
+    outline-offset: 2px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    color: var(--arrow-color);
+    background: none;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.arrow:hover, .arrow:focus {
+    color: var(--arrow-hover);
+    outline: none;
+}
+
+.arrow-left { left: 1rem; }
+.arrow-right { right: 1rem; }
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.slide-1, .slide-3 { background: linear-gradient(135deg, var(--slide-bg), #0f1a33); }
+.slide-2 { background: linear-gradient(135deg, #2a4066, #1e2a44); }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .overlay { padding: 1rem; }
+    .arrow { font-size: 2.5rem; padding: 0.5rem; }
+}
